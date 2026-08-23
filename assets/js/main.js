@@ -134,9 +134,19 @@ var openUpsell, closeUpsell;
 
   var ultimoFoco = null;
 
+  // A lista "O que vem no Pacote Completo" e um <details open>: fica aberta
+  // por padrao, inclusive se este script nao rodar. No celular ela sozinha
+  // ocupa 300px e faria o modal passar da altura da tela, entao recolhe.
+  // O limite 640px e o mesmo do @media que encolhe a arte no styles.css.
+  function ajustaLista() {
+    var lista = modal.querySelector('.upsell-lista');
+    if (lista) lista.open = window.innerWidth >= 640;
+  }
+
   openUpsell = function () {
     if (!modal.hidden) return; // ja esta aberto, nao faz nada
     ultimoFoco = document.activeElement;
+    ajustaLista();
     modal.hidden = false;
     document.body.style.overflow = 'hidden';
     var fechar = modal.querySelector('[data-upsell-close]');
