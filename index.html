@@ -142,16 +142,19 @@
             >
           </p>
           <div class="mt-8">
+            <!--
+              Video da Wistia (MINI VSL MARCADORES DE PAGINA, 55s).
+              O arquivo e 720x1560, vertical. O tamanho vem da ALTURA e a
+              largura sai da proporcao — ver .hero-video no styles.css.
+              Os dois scripts abaixo sao o embed padrao da Wistia: o player
+              e os dados deste video. Carregam async, sem travar a pagina.
+            -->
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/kxkksz05vl.js" async type="module"></script>
             <div
-              class="relative mx-auto w-full max-w-3xl overflow-hidden rounded-2xl shadow-gold ring-1 ring-border bg-muted"
+              class="hero-video relative mx-auto overflow-hidden rounded-2xl shadow-gold ring-1 ring-border bg-muted"
             >
-              <img
-                src="assets/img/hero-banner.webp"
-                alt="Caixa dos 150 Marca Página Ilustrativos com dezenas de marcadores ilustrados e coloridos, prontos para imprimir"
-                width="1536" height="1024"
-                fetchpriority="high"
-                class="block h-auto w-full"
-              />
+              <wistia-player media-id="kxkksz05vl" aspect="0.46153846153846156"></wistia-player>
             </div>
           </div>
           <div class="mt-7 flex flex-col items-center gap-3">

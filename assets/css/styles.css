@@ -38,3 +38,25 @@
 @media (min-width:640px){
   .upsell-lista > summary{pointer-events:none}
 }
+
+/* ----------------------------------------------------------------------
+   Video vertical do topo (720x1560, proporcao 1:2,17).
+   O tamanho e definido pela ALTURA, nao pela largura: um video assim
+   esticado nos 768px do bloco antigo daria 1664px de altura. Com 85vh
+   ele ocupa quase a tela toda no celular — que e como um video vertical
+   foi feito para ser visto — e vira uma coluna de ~350px no desktop.
+   ---------------------------------------------------------------------- */
+.hero-video{
+  aspect-ratio:720/1560;
+  height:min(85vh,800px);
+  width:auto;
+  max-width:100%;
+}
+.hero-video wistia-player{display:block;width:100%;height:100%}
+/* enquanto o componente nao e definido, mostra o quadro do video borrado
+   no lugar de um retangulo vazio */
+wistia-player[media-id="kxkksz05vl"]:not(:defined){
+  display:block;width:100%;height:100%;
+  background:center / cover no-repeat url('https://fast.wistia.com/embed/medias/kxkksz05vl/swatch');
+  filter:blur(5px);
+}
